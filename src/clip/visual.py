@@ -40,8 +40,7 @@ class CLIPVisualEncoder(InferenceModel):
 
     @property
     def model_cfg_path(self) -> Path:
-        dir = "/".join(self.model_dir.split('/')[0:-2])
-        return Path(dir) / "config.json"
+        return Path(self.model_dir).parent / "config.json"
 
     @property
     def preprocess_cfg_path(self) -> Path:

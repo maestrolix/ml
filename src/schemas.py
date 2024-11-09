@@ -1,7 +1,7 @@
 import numpy as np
 import numpy.typing as npt
 from typing_extensions import TypedDict
-from typing import Union, Any, List, Dict, Protocol
+from typing import List, Dict, Protocol
 
 class BoundingBox(TypedDict):
     x1: int

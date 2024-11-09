@@ -18,7 +18,6 @@ def resize_pil(img: Image.Image, size: int) -> Image.Image:
         return img.resize((int((img.width / img.height) * size), size), resample=Image.Resampling.BICUBIC)
 
 
-# https://stackoverflow.com/a/60883103
 def crop_pil(img: Image.Image, size: int) -> Image.Image:
     left = int((img.size[0] / 2) - (size / 2))
     upper = int((img.size[1] / 2) - (size / 2))
@@ -47,9 +46,6 @@ def pil_to_cv2(image: Image.Image) -> NDArray[np.uint8]:
 
 
 def decode_pil(image_bytes: bytes | IO[bytes] | Image.Image) -> Image.Image:
-    """
-    Преобразование фотографии для удобной дальшейшей работы
-    """
     if isinstance(image_bytes, Image.Image):
         return image_bytes
     image: Image.Image = Image.open(BytesIO(image_bytes) if isinstance(image_bytes, bytes) else image_bytes)
